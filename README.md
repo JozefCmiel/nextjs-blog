@@ -56,13 +56,15 @@ it on the FE, thats pointless at that time becouse we already have that data so 
 
 ## TODOS
 
-Better error handling where we may not get comments for posts but we do get post so we can show user just the post.
+1. Better error handling where we may not get comments for posts but we do get post so we can show user just the post.
 
-Add tranlsations - multiple language
+2. Add tranlsations - multiple language support.
 
-Navbar has just fake buttons maybe add some functionality
+3. Navbar has just fake buttons maybe add some functionality.
 
-Better test coverage. Add cypress tests.
+4. Better test coverage. Add cypress tests.
+
+5. Better documatation of functionalComponents and helpers.
 
 ## Personal notes
 
