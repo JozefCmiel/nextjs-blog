@@ -14,9 +14,9 @@ Task is described inside `Task.pdf` file.
     - `/pages` ( used Next 12 architecture )
 3. Create a simple API endpoint :heavy_check_mark:
     - `~/utils/fetch` Typed api endpoint used in `index.tsx` and `[id].tsx`
-4. User server-side rendering to fetch and display data
+4. User server-side rendering to fetch and display data :heavy_check_mark:
     - `getServerSideProps` inside `index.tsx` as SSR method, and `getStaticProps` inside `[id].tsx` for SSG*
-5. Use CSS
+5. Use CSS :heavy_check_mark:
     - Used Tailwind as css platform.
 
 
