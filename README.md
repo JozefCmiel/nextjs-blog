@@ -66,6 +66,8 @@ it on the FE, thats pointless at that time becouse we already have that data so 
 
 5. Better documatation of functionalComponents and helpers.
 
+6. Create posts, users, comments.
+
 ## Personal notes
 
 As a my first `NextJs` project I got to learn how data are fetched on server-side platform. Personally I found `Remix`
