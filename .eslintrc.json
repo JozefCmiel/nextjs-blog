@@ -1,3 +1,398 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "browser": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:jest/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "globals": {},
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "jest",
+    "unused-imports",
+    "header"
+  ],
+  "rules": {
+    "jest/no-conditional-expect": [
+      "off"
+    ],
+    "jest/no-done-callback": [
+      "off"
+    ],
+    "jest/no-standalone-expect": [
+      "off"
+    ],
+    "jest/valid-title": [
+      "off"
+    ],
+    "jest/no-commented-out-tests": [
+      "off"
+    ],
+    "jest/expect-expect": [
+      "off"
+    ],
+    "array-bracket-spacing": [
+      "error",
+      "always"
+    ],
+    "arrow-spacing": [
+      "error",
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    "import/no-unresolved": [
+      "off"
+    ],
+    "import/no-named-as-default-member": [
+      "off"
+    ],
+    "callback-return": [
+      "error",
+      [
+        "callback",
+        "innerCallback",
+        "innestCallback",
+        "next"
+      ]
+    ],
+    "comma-spacing": [
+      "error",
+      {
+        "after": true,
+        "before": false
+      }
+    ],
+    "computed-property-spacing": [
+      "error",
+      "never"
+    ],
+    "curly": [
+      "error"
+    ],
+    "default-case": [
+      "error"
+    ],
+    "eol-last": [
+      "error",
+      "always"
+    ],
+    "eqeqeq": [
+      "error",
+      "always"
+    ],
+    "func-style": [
+      "error",
+      "expression"
+    ],
+    "function-paren-newline": [
+      "error",
+      "consistent"
+    ],
+    "id-length": [
+      "error",
+      {
+        "min": 2,
+        "properties": "never",
+        // t for translate function, i and j for iterators
+        "exceptions": [
+          "t",
+          "i",
+          "j"
+        ]
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "never",
+      {
+        "svg": "always",
+        "yaml": "always"
+      }
+    ],
+    "import/first": [
+      "error"
+    ],
+    "import/no-self-import": [
+      "error"
+    ],
+    "import/no-cycle": [
+      "error"
+    ],
+    "import/namespace": [
+      "error",
+      {
+        "allowComputed": true
+      }
+    ],
+    "import/newline-after-import": [
+      "error",
+      {
+        "count": 2
+      }
+    ],
+    "import/no-namespace": [
+      "off"
+    ],
+    "import/no-duplicates": [
+      "error"
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          [
+            "builtin",
+            "external",
+            "internal"
+          ],
+          [
+            "unknown"
+          ],
+          [
+            "parent",
+            "sibling",
+            "index"
+          ]
+        ],
+        "newlines-between": "always"
+      }
+    ],
+    "indent": [
+      "error",
+      4
+    ],
+    "key-spacing": [
+      "error",
+      {}
+    ],
+    "keyword-spacing": [
+      "error"
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "max-len": [
+      "error",
+      {
+        "code": 120,
+        "ignoreComments": false,
+        "ignorePattern": "(^import | require | message=|^\\} from \")",
+        "ignoreRegExpLiterals": true,
+        "ignoreStrings": false,
+        "ignoreTemplateLiterals": false,
+        "ignoreTrailingComments": false,
+        "ignoreUrls": true,
+        "tabWidth": 4
+      }
+    ],
+    "max-statements-per-line": [
+      "error",
+      {
+        "max": 1
+      }
+    ],
+    "no-alert": [
+      "error"
+    ],
+    "no-console": [
+      "error"
+    ],
+    "no-constant-condition": [
+      "error",
+      {
+        "checkLoops": false
+      }
+    ],
+    "no-debugger": [
+      "error"
+    ],
+    "no-extra-boolean-cast": [
+      "error"
+    ],
+    "no-extra-parens": [
+      "error",
+      "all",
+      {
+        "ignoreJSX": "all",
+        "nestedBinaryExpressions": false
+      }
+    ],
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 2,
+        "maxBOF": 0,
+        "maxEOF": 0
+      }
+    ],
+    "no-trailing-spaces": [
+      "error",
+      {
+        "skipBlankLines": false,
+        "ignoreComments": false
+      }
+    ],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {}
+    ],
+    "@typescript-eslint/no-var-requires": "off",
+    "unused-imports/no-unused-imports": [
+      "error",
+      {}
+    ],
+    "no-var": [
+      "error"
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "operator-linebreak": [
+      "error",
+      "after"
+    ],
+    "prefer-const": [
+      "error"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "jsx-quotes": [
+      "error",
+      "prefer-double"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "semi-spacing": [
+      "error",
+      {
+        "after": true,
+        "before": false
+      }
+    ],
+    "space-before-blocks": [
+      "error",
+      "always"
+    ],
+    "space-before-function-paren": [
+      "error",
+      {
+        "anonymous": "never",
+        "named": "never",
+        "asyncArrow": "always"
+      }
+    ],
+    "space-in-parens": [
+      "error",
+      "never"
+    ],
+    "space-infix-ops": [
+      "error",
+      {}
+    ],
+    "template-curly-spacing": [
+      "error",
+      "never"
+    ],
+    "react/jsx-closing-bracket-location": [
+      "error"
+    ],
+    "react/jsx-closing-tag-location": [
+      "error"
+    ],
+    "react/jsx-curly-spacing": [
+      "error",
+      {
+        "children": true,
+        "when": "never"
+      }
+    ],
+    "react/jsx-equals-spacing": [
+      "error",
+      "never"
+    ],
+    "react/jsx-first-prop-new-line": [
+      "error",
+      "multiline-multiprop"
+    ],
+    "react/jsx-max-props-per-line": [
+      "error"
+    ],
+    "react/jsx-no-undef": [
+      "error",
+      {}
+    ],
+    "react/jsx-pascal-case": [
+      "error"
+    ],
+    "react/jsx-sort-props": [
+      "error"
+    ],
+    "react/jsx-tag-spacing": [
+      "error",
+      {
+        "afterOpening": "never",
+        "beforeClosing": "never",
+        "beforeSelfClosing": "always",
+        "closingSlash": "never"
+      }
+    ],
+    "react/jsx-uses-vars": 2,
+    "react/jsx-wrap-multilines": [
+      "error",
+      {
+        "arrow": "parens-new-line",
+        "assignment": "parens-new-line",
+        "condition": "ignore",
+        "declaration": "parens-new-line",
+        "logical": "ignore",
+        "prop": "ignore",
+        "return": "parens-new-line"
+      }
+    ],
+    "react/prefer-es6-class": [
+      "error"
+    ],
+    "react/prop-types": [
+      "error"
+    ],
+    "react/react-in-jsx-scope": "off",
+    "react/self-closing-comp": [
+      "error",
+      {
+        "component": true,
+        "html": false
+      }
+    ],
+    "header/header": [
+      2,
+      "block",
+      [
+        " * * * * * * * * * * * * * * * * * * * * * * * * * * * * *",
+        "* POZOR: Tento soubor obsahuje CITLIVE INFORMACE            *",
+        "* CAUTION: This file contains SENSITIVE INFORMATION         *",
+        "*                                                           *",
+        "* Copyright @JCmiel                                         *",
+        "* All rights reserved.                                      *",
+        "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * "
+      ]
+    ]
+  }
 }

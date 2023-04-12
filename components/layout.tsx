@@ -5,17 +5,20 @@
 * Copyright @JCmiel                                         *
 * All rights reserved.                                      *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+import PropTypes from 'prop-types';
 
-import type { NextApiRequest, NextApiResponse } from 'next';
+import Navbar from '~/components/navbar';
 
 
-type Data = {
-  name: string
-}
+const LayoutProps = {
+    children: PropTypes.node,
+};
 
-export default function handler(
-    req: NextApiRequest,
-    res: NextApiResponse<Data>
-) {
-    res.status(200).json({ name: 'John Doe' });
+export default function Layout({ children }: PropTypes.InferProps<typeof LayoutProps>) {
+    return (
+        <>
+            <Navbar />
+            <main className="flex min-h-screen flex-col items-center justify-between p-24">{children}</main>
+        </>
+    );
 }
