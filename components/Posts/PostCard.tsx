@@ -34,7 +34,6 @@ export default function PostCard({ post, user }: InferProps<typeof PostCardProp>
                     <h4 className="text-lg font-bold">{post.title}</h4>
                     <span className="text-md">{post.body}</span>
                 </div>
-                <div>image</div>
             </Link>
         </div>
 
