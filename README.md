@@ -68,7 +68,7 @@ it on the FE, thats pointless at that time becouse we already have that data so 
 
 6. Create posts, users, comments.
 
-7. Větší optimalizace
+7. Better optimalization
 
 ## Personal notes
 
