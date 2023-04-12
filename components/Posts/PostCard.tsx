@@ -7,8 +7,11 @@
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 import { InferProps } from 'prop-types';
 import Link from 'next/link';
+import { useContext, useMemo } from 'react';
 
 import { PostProp, UserProp } from '~/resources/types';
+import { SearchContext } from '~/pages';
+import { searchObject } from '~/utils/objectUtils';
 
 
 const PostCardProp = {
@@ -17,8 +20,14 @@ const PostCardProp = {
 };
 
 export default function PostCard({ post, user }: InferProps<typeof PostCardProp>) {
+
+    const { search } = useContext(SearchContext);
+    // expensive operation - useMemo
+    const match = useMemo(() => searchObject(post, search), [ search ]);
     return (
-        <div className="bg-white p-2 w-4/6 flex justify-between rounded-md mt-2 shadow-md">
+        <div className={`bg-white p-2 w-4/6 flex justify-between rounded-md mt-2 shadow-md
+         ${!match && search ? 'hidden' : ''}`}
+        >
             <Link href={`/post/${post.id}`}>
                 <div>
                     <h6 className="text-gray-400">{user.username}</h6>

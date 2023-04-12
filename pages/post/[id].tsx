@@ -13,6 +13,7 @@ import Post from '~/components/SinglePost/Post';
 import { API_URL } from '~/resources/constants';
 import { PostProp, PostType, UserProp, CommentProp } from '~/resources/types';
 import Comments from '~/components/SinglePost/Comments';
+import { fetcher } from '~/utils/fetch';
 
 
 const PostPageProps = {
@@ -33,13 +34,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<InferProps<typeof PostPageProps>> =
 async (context: GetStaticPropsContext) => {
-    const res = await fetch(`${API_URL}/posts/${context.params?.id}`);
-    const data = await res.json();
-    const userRes = await fetch(`${API_URL}/users/${data.userId}`);
-    const user = await userRes.json();
+    const data = await fetcher(`posts/${context.params?.id}`);
+    const user = await fetcher(`users/${data.userId}`);
 
-    const commentRes = await fetch(`${API_URL}/posts/${context.params?.id}/comments`);
-    const comments = await commentRes.json();
+    const comments = await fetcher(`posts/${context.params?.id}/comments`);
 
     return {
         props: {

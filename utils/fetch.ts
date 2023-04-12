@@ -6,16 +6,11 @@
 * All rights reserved.                                      *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-import type { NextApiRequest, NextApiResponse } from 'next';
+import { API_URL } from '~/resources/constants';
 
 
-type Data = {
-  name: string
-}
+type apis = 'posts' | 'users' | 'comments';
 
-export default function handler(
-    req: NextApiRequest,
-    res: NextApiResponse<Data>
-) {
-    res.status(200).json({ name: 'John Doe' });
-}
+type endpoint = apis | `${apis}/${string}` | `${apis}/${string}/${apis}`;
+
+export const fetcher = (endpoint: endpoint) => fetch(`${API_URL}/${endpoint}`).then((res) => res.json());
