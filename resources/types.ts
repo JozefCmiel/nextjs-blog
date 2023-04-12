@@ -52,13 +52,13 @@ export type UserType = InferProps<typeof User>;
 
 
 export const ApiError = {
-    message: stringProp,
-    status: numberProp,
+    message: PropTypes.string,
+    status: PropTypes.number,
 };
 
-export const ApiErrorProp = PropTypes.shape(ApiError).isRequired;
+export const ApiErrorProp = PropTypes.shape(ApiError);
 
-export type ApiErrorType = InferProps<typeof User>;
+export type ApiErrorType = InferProps<typeof ApiError>;
 
 
 export const Comment = {

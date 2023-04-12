@@ -11,30 +11,42 @@ import PropTypes, { InferProps } from 'prop-types';
 import { createContext } from 'react';
 
 import Posts from '~/components/Posts/Posts';
-import { PostProp, UserProp } from '~/resources/types';
+import { PostProp, UserProp, ApiErrorProp } from '~/resources/types';
 import { useString } from '~/utils/defaultHooks';
 import { normalizeArray } from '~/utils/serializer';
 import { fetcher } from '~/utils/fetch';
+import { createApiError } from '~/utils/createApiError';
 
 
 const HomeProps = {
     data: PropTypes.arrayOf(PostProp).isRequired,
     users: PropTypes.objectOf(UserProp).isRequired,
+    error: ApiErrorProp
 };
 
 export const getServerSideProps: GetServerSideProps<InferProps<typeof HomeProps>> = async () => {
-    const data = await fetcher('posts');
-    const users = await fetcher('users');
+    try {
+        const data = await fetcher('posts');
+        const users = await fetcher('users');
+        return {
+            props: {
+                data: data ? data : [],
+                users: normalizeArray(users ? users : [])
+            },
+        };
+    } catch (error) {
+        return {
+            props: {
+                data: [],
+                users: {},
+                error: createApiError(error),
+            },
+        };
+    }
 
-    return {
-        props: {
-            data: data ? data : [],
-            users: normalizeArray(users ? users : [])
-        },
-    };
 };
 export const SearchContext = createContext({ search: '' } as { search: string });
-export default function Home({ data, users }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function Home({ data, users, error }: InferGetServerSidePropsType<typeof getServerSideProps>) {
     const [ search, setSearch ] = useString('');
     return (
         <div className="flex-col flex items-center">
@@ -53,6 +65,7 @@ export default function Home({ data, users }: InferGetServerSidePropsType<typeof
                 <h3 className="text-lg font-bold">Daily digest</h3>
                 <button className="bg-gray-300 p-2 rounded-md">View all</button>
             </div>
+            {error && <div className="text-red-500">{error.message}</div>}
             <SearchContext.Provider value={{ search }}>
                 <Posts
                     data={data}

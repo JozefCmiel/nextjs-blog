@@ -16,7 +16,9 @@ const PostProps = {
 };
 
 export default function Post({ post, user }: InferProps<typeof PostProps>) {
-
+    if (!post || !user) {
+        return null;
+    }
     return (
         <>
             <div className="bg-white p-2 w-5/6 flex flex-col justify-between rounded-md mt-2 shadow-md">
